@@ -153,9 +153,9 @@ export const DonationProvider = ({ children }: iDonationProviderProps) => {
         city: request.address.city,
         state: request.address.state,
       },
-      request: [...request?.request, user]
-    }
-      
+      request: [...request?.request, user],
+    };
+
     if (!token) {
       return false;
     }
@@ -175,9 +175,8 @@ export const DonationProvider = ({ children }: iDonationProviderProps) => {
   };
 
   const sendDonation = async () => {
-
-    setModalLoading(true)
-    setReloadPage(!reloadPage)
+    setModalLoading(true);
+    setReloadPage(!reloadPage);
     const token = window.localStorage.getItem("TOKEN");
     const id = donation.id;
     try {
@@ -191,11 +190,9 @@ export const DonationProvider = ({ children }: iDonationProviderProps) => {
       console.log(error);
       toast.error("Algo errado por aqui");
     } finally {
-
-      setModalLoading(false)
-      setReloadPage(!reloadPage)
-      return false
-
+      setModalLoading(false);
+      setReloadPage(!reloadPage);
+      return false;
     }
   };
   const createDonation = async (data: any) => {
@@ -212,7 +209,7 @@ export const DonationProvider = ({ children }: iDonationProviderProps) => {
         city: data.city,
         state: data.state,
       },
-      request: []
+      request: [],
     };
     if (!token) {
       return null;
@@ -226,7 +223,7 @@ export const DonationProvider = ({ children }: iDonationProviderProps) => {
       });
 
       toast.success("Doação adicionada com sucesso!");
-      setReloadPage(!reloadPage)
+      setReloadPage(!reloadPage);
     } catch (error) {
       console.error(error);
       toast.error("algo deu errado tente novamente!");
@@ -237,7 +234,7 @@ export const DonationProvider = ({ children }: iDonationProviderProps) => {
     amounts: number;
     id: number;
   }): Promise<boolean> => {
-    setModalLoading(true)
+    setModalLoading(true);
     try {
       const token = localStorage.getItem("TOKEN");
 
@@ -248,16 +245,16 @@ export const DonationProvider = ({ children }: iDonationProviderProps) => {
       });
 
       toast.success("Quantidade alterada com sucesso!");
-      return false
+      return false;
     } catch (error) {
       toast.error("Ops! Algo deu errado");
-      return true
+      return true;
     } finally {
-      setModalLoading(false)
+      setModalLoading(false);
     }
   };
   const deleteDonation = async (id: number): Promise<boolean> => {
-    setModalLoading(true)
+    setModalLoading(true);
     try {
       const token = localStorage.getItem("TOKEN");
 
@@ -268,13 +265,13 @@ export const DonationProvider = ({ children }: iDonationProviderProps) => {
       });
 
       toast.success("Doação deletada com sucesso!");
-      return false
+      return false;
     } catch (error) {
       toast.error("Ops! Algo deu errado");
-      return true
+      return true;
     } finally {
-      setModalLoading(false)
-      setReloadPage(!reloadPage)
+      setModalLoading(false);
+      setReloadPage(!reloadPage);
     }
   };
 

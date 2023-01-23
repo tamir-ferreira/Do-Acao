@@ -32,7 +32,7 @@ export const StyledModal = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--color-primary);
+    background-color: var(--color-grey50);
     position: absolute;
     z-index: 10;
   }

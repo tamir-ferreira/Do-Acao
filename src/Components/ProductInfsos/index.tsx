@@ -14,7 +14,7 @@ export const ProductInfos = ({ setState }: iPropsState) => {
     setState(state);
   };
 
-  console.log(donation.address);
+  console.log(donation);
   {
     return (
       <ProductInfosStyled>
@@ -23,7 +23,7 @@ export const ProductInfos = ({ setState }: iPropsState) => {
           {donation.title}
         </StyledTypography>
         <StyledTypography classText="Caption" tag="h6">
-          Localização: {donation.address.city} | {donation.address.state}
+          Localização: {donation.address?.city} | {donation.address?.state}
         </StyledTypography>
         <StyledTypography classText="Caption" tag="h6">
           Categoria: {donation.category}

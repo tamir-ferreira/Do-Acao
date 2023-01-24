@@ -16,7 +16,7 @@ export const InitialPage = () => {
   const [openRegisterReceiver, setOpenRegisterReceiver] = useState(false);
   const [openRegisterDonor, setOpenRegisterDonor] = useState(false);
 
-  const token = sessionStorage.getItem("TOKEN");
+  const token = localStorage.getItem("TOKEN");
 
   return token === null ? (
     <>

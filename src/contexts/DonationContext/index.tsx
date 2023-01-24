@@ -28,7 +28,7 @@ export const DonationProvider = ({ children }: iDonationProviderProps) => {
 
   useEffect(() => {
     const getProducts = async () => {
-      const token = sessionStorage.getItem("TOKEN");
+      const token = localStorage.getItem("TOKEN");
 
       if (!token) {
         return null;
@@ -47,8 +47,8 @@ export const DonationProvider = ({ children }: iDonationProviderProps) => {
     };
     getProducts();
     const getMyDonations = async () => {
-      const token = sessionStorage.getItem("TOKEN");
-      const userId = sessionStorage.getItem("USER");
+      const token = localStorage.getItem("TOKEN");
+      const userId = localStorage.getItem("USER");
       if (!token) {
         return null;
       }
@@ -70,7 +70,7 @@ export const DonationProvider = ({ children }: iDonationProviderProps) => {
   }, [user]);
   useEffect(() => {
     const getProducts = async () => {
-      const token = sessionStorage.getItem("TOKEN");
+      const token = localStorage.getItem("TOKEN");
 
       if (!token) {
         return null;
@@ -89,8 +89,8 @@ export const DonationProvider = ({ children }: iDonationProviderProps) => {
     };
     getProducts();
     const getMyDonations = async () => {
-      const token = sessionStorage.getItem("TOKEN");
-      const userId = sessionStorage.getItem("USER");
+      const token = localStorage.getItem("TOKEN");
+      const userId = localStorage.getItem("USER");
       if (!token) {
         return null;
       }
@@ -115,7 +115,7 @@ export const DonationProvider = ({ children }: iDonationProviderProps) => {
     setModalLoading(true);
     console.log(modalLoading);
 
-    const token = sessionStorage.getItem("TOKEN");
+    const token = localStorage.getItem("TOKEN");
 
     if (!token) {
       return false;
@@ -139,7 +139,7 @@ export const DonationProvider = ({ children }: iDonationProviderProps) => {
   };
 
   const requestDonation = async (id: number) => {
-    const token = sessionStorage.getItem("TOKEN");
+    const token = localStorage.getItem("TOKEN");
     console.log(request);
 
     const body = request && {
@@ -177,7 +177,7 @@ export const DonationProvider = ({ children }: iDonationProviderProps) => {
   const sendDonation = async () => {
     setModalLoading(true);
     setReloadPage(!reloadPage);
-    const token = window.sessionStorage.getItem("TOKEN");
+    const token = window.localStorage.getItem("TOKEN");
     const id = donation.id;
     try {
       await api.delete(`donation/${id}`, {
@@ -196,8 +196,8 @@ export const DonationProvider = ({ children }: iDonationProviderProps) => {
     }
   };
   const createDonation = async (data: any) => {
-    const token = sessionStorage.getItem("TOKEN");
-    const userId = sessionStorage.getItem("USER");
+    const token = localStorage.getItem("TOKEN");
+    const userId = localStorage.getItem("USER");
     const body = {
       userId: userId,
       title: data.title,
@@ -237,7 +237,7 @@ export const DonationProvider = ({ children }: iDonationProviderProps) => {
     setModalLoading(true);
     try {
       setReloadPage(!reloadPage);
-      const token = sessionStorage.getItem("TOKEN");
+      const token = localStorage.getItem("TOKEN");
 
       await api.patch(`/donation/${data.id}`, data, {
         headers: {
@@ -258,7 +258,7 @@ export const DonationProvider = ({ children }: iDonationProviderProps) => {
   const deleteDonation = async (id: number): Promise<boolean> => {
     setModalLoading(true);
     try {
-      const token = sessionStorage.getItem("TOKEN");
+      const token = localStorage.getItem("TOKEN");
 
       await api.delete(`/donation/${id}`, {
         headers: {

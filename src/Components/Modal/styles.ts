@@ -46,7 +46,7 @@ export const StyledModal = styled.div`
     width: 95%;
     height: auto;
     padding: 0;
-    margin: 30px 0;
+    margin: 70px 0;
   }
   .default-modal-header > p {
     font-size: 20px;

@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export const StyledHeader = styled.header`
   width: 100vw;
-  height: 110px;
+  height: 120px;
   background-color: var(--color-secondary);
   box-shadow: 2px 2px 10px #00000060;
 
@@ -74,7 +74,6 @@ export const StyledHeader = styled.header`
       margin-top: 10px;
       align-items: flex-start;
       padding-left: 10px;
-      /* position: relative; */
 
       h2 {
         width: 95vw;

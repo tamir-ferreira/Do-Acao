@@ -60,48 +60,45 @@ export const ModalProfile = () => {
           id={"Nome"}
           type={"text"}
           register={register("name")}
-          placeholder={"Digite seu novo endereço"}
+          // placeholder={"Digite seu novo endereço"}
+          required={false}
         />
         <Input
           label={"Sua imagem"}
           id={"avatar"}
           type={"text"}
           register={register("profileImgUrl")}
-          placeholder={"Cole aqui o link do seu avatar"}
+          // placeholder={"Cole aqui o link do seu avatar"}
+          required={false}
         />
         <Input
           label={"Endereço"}
           id={"place"}
           type={"text"}
           register={register("street")}
-          placeholder={"Digite seu endereço aqui"}
+          // placeholder={"Digite seu endereço aqui"}
+          required={false}
         />
         <Input
           label={"Cidade"}
           id={"Cidade"}
           type={"text"}
           register={register("city")}
-          placeholder={"Digite sua cidade"}
+          // placeholder={"Digite sua cidade"}
+          required={false}
         />
         <Input
           label={"Estado"}
           id={"country"}
           type={"text"}
           register={register("state")}
-          placeholder={"Digite seu estado aqui"}
+          // placeholder={"Digite seu estado aqui"}
+          required={false}
         />
         <Button size="lg" theme="primary" type="submit">
           Editar perfil
         </Button>
       </form>
-      {/* <Button
-          size="lg"
-          theme="white"
-          type="button"
-          onclick={() => {setModalProfile(false)}}
-        >
-          Cancelar
-        </Button> */}
     </ModalProfileStyled>
   );
 };

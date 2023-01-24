@@ -5,9 +5,10 @@ interface iInputProps {
   label: string;
   id: string;
   type?: "text" | "password" | "email" | "number";
-  placeholder: string;
+  placeholder?: string;
   register?: UseFormRegisterReturn;
   disabled?: boolean;
+  required?: boolean;
   rows?: string;
   cols?: string;
 }
@@ -19,6 +20,7 @@ export const Input = ({
   placeholder,
   register,
   disabled,
+  required = true,
 }: iInputProps) => {
   return (
     <>
@@ -29,7 +31,7 @@ export const Input = ({
           placeholder={placeholder}
           {...register}
           disabled={disabled}
-          // required={true}
+          required={required}
         />
         <label htmlFor={id}>{label}</label>
       </InputStyled>

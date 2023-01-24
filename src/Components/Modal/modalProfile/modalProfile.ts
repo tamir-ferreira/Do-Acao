@@ -6,12 +6,11 @@ export const ModalProfileStyled = styled.div`
   width: 100%;
   max-width: 90%;
 
-  transform: translateY(-20px);
+  transform: translateY(-30px);
 
   div {
     display: flex;
     flex-direction: column;
-    /* gap: 0.875rem; */
   }
 
   span#nome {
@@ -33,10 +32,10 @@ export const ModalProfileStyled = styled.div`
     border-radius: 50%;
   }
   form {
-    margin: 2rem 0;
+    margin: 4rem 0;
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 2.5rem;
   }
   button:first-child {
     margin-top: 1.5rem;

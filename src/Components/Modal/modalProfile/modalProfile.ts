@@ -6,10 +6,12 @@ export const ModalProfileStyled = styled.div`
   width: 100%;
   max-width: 90%;
 
+  transform: translateY(-20px);
+
   div {
     display: flex;
     flex-direction: column;
-    gap: 0.875rem;
+    /* gap: 0.875rem; */
   }
 
   span#nome {
@@ -25,12 +27,13 @@ export const ModalProfileStyled = styled.div`
   img {
     margin-bottom: 1rem;
     align-self: center;
-    width: 15rem;
-    height: 15rem;
-    max-width: 90%;
+    width: 13rem;
+    height: 13rem;
+    max-width: 80%;
+    border-radius: 50%;
   }
   form {
-    margin: 1.5rem 0;
+    margin: 2rem 0;
     display: flex;
     flex-direction: column;
     gap: 2rem;

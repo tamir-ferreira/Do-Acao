@@ -22,14 +22,14 @@ export const ProductDonor = ({ setState }: iPropsState) => {
       </StyledTypography>
       <ul>
         {request?.request.length !== 0 ? (
-          request?.request.map((req: iReciver, index: any) => (
+          request?.request.map((req: iReciver, index: number) => (
             <CardDonation request={req} setState={setState} key={index} />
           ))
         ) : (
           <div>
             <CiFaceFrown size={35} />
             <StyledTypography classText="Caption" tag="p">
-              Ninguem se canditatou por aqui
+              Ninguém se candidatou por aqui...
             </StyledTypography>
           </div>
         )}

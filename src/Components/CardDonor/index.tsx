@@ -52,7 +52,7 @@ export const CardDonor = ({
       <ImageCategories category={category} />
       <div>
         <StyledTypography classText="Heading4" tag="h3">
-          {title.substring(0, 12)}
+          {title.substring(0, 13)}
         </StyledTypography>
         <StyledTypography classText="Body" tag="p">
           {category}

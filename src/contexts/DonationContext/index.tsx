@@ -236,6 +236,7 @@ export const DonationProvider = ({ children }: iDonationProviderProps) => {
   }): Promise<boolean> => {
     setModalLoading(true);
     try {
+      setReloadPage(!reloadPage);
       const token = localStorage.getItem("TOKEN");
 
       await api.patch(`/donation/${data.id}`, data, {
@@ -251,6 +252,7 @@ export const DonationProvider = ({ children }: iDonationProviderProps) => {
       return true;
     } finally {
       setModalLoading(false);
+      setReloadPage(!reloadPage);
     }
   };
   const deleteDonation = async (id: number): Promise<boolean> => {

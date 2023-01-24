@@ -35,11 +35,14 @@ export const CardDonation = ({ request, setState }: Irequest) => {
         ) : (
           <img src={imgError} alt="profilepic" />
         )}
-        <StyledTypography classText="Caption" tag="p">
-          {request.name?.substring(0, 10)}
+        <StyledTypography classText="Body" tag="p">
+          {request.name?.substring(0, 12)}
         </StyledTypography>
-        <StyledTypography classText="Caption" tag="p">
-          {request.company?.substring(0, 10)}
+        <StyledTypography classText="Small" tag="p">
+          {request.company?.substring(0, 12)}
+        </StyledTypography>
+        <StyledTypography classText="Small" tag="p">
+          {`${request.address?.city} | ${request.address?.state}`}
         </StyledTypography>
         <Button
           size={"sm"}

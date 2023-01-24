@@ -12,6 +12,10 @@ export const StyledCardDonation = styled.li`
   margin-top: 5%;
   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.45);
   border: 3px solid var(--color-secondary);
+  :hover {
+    transform: translateY(-10px);
+    box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.45);
+  }
 
   > div > img {
     width: 100%;
@@ -29,13 +33,15 @@ export const StyledCardDonation = styled.li`
   }
 
   div {
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    gap: 10px;
+    gap: 5px;
 
-    hr {
+    p:nth-child(3) {
+      text-align: center;
       width: 100%;
     }
   }

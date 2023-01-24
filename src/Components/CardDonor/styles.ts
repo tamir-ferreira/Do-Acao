@@ -22,7 +22,7 @@ export const StyledCard = styled.li`
     left: 26px;
     border-radius: 50%;
     border: 4px solid var(--color-secondary);
-
+    transition: 0.5s ease-out;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -33,6 +33,11 @@ export const StyledCard = styled.li`
       max-height: 100%;
     }
   }
+
+  :hover figure {
+    border: 4px solid var(--color-primary);
+  }
+
   :hover img {
     max-height: 130%;
   }

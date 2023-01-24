@@ -41,7 +41,7 @@ export const StyledHeader = styled.header`
         overflow: hidden;
 
         :first-child {
-          border: 3px solid var(--color-grey50);
+          border: 2px solid var(--color-grey50);
 
           > img {
             width: 40px;
@@ -50,7 +50,7 @@ export const StyledHeader = styled.header`
           }
 
           :hover {
-            border: 3px solid var(--color-primary);
+            border: 2px solid var(--color-primary);
           }
         }
 

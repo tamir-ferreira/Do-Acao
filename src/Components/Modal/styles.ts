@@ -1,4 +1,5 @@
 import styled from "styled-components";
+
 export const StyledModal = styled.div`
   width: 100vw;
   height: 100vh;
@@ -45,7 +46,7 @@ export const StyledModal = styled.div`
     width: 95%;
     height: auto;
     padding: 0;
-    margin: 45px 0;
+    margin: 30px 0;
   }
   .default-modal-header > p {
     font-size: 20px;

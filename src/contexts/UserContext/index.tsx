@@ -12,7 +12,7 @@ import {
   iUser,
   iFormLogin,
   iUserResponse,
-  iEditAdrress,
+  iEditAddress,
 } from "./types";
 
 export const UserContext = createContext({} as iUserProviderValue);
@@ -24,6 +24,7 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
   const [loadingUser, setLoadingUser] = useState(true);
   const [isDonor, setIsDonor] = useState(false);
   const [modalProfile, setModalProfile] = useState(false);
+  const [reloadPage, setReloadPage] = useState(false);
 
   useEffect(() => {
     async function loadUser() {
@@ -51,7 +52,7 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
       }
     }
     loadUser();
-  }, []);
+  }, [reloadPage]);
 
   const userLogin = async (data: iFormLogin): Promise<void> => {
     try {
@@ -79,58 +80,73 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
     }
   };
 
-  const userRegisterDonor = async (data: iFormRegisterDonor): Promise<boolean> => {
+  const userRegisterDonor = async (
+    data: iFormRegisterDonor
+  ): Promise<boolean> => {
     try {
       setLoading(true);
 
       const response = await api.post<iUserResponse>("register", data);
 
       toast.success("Conta criada com sucesso!");
-      return false
+      return false;
     } catch (error) {
       console.log(error);
       toast.error("Ops! Algo deu errado");
-      return true
+      return true;
     } finally {
       setLoading(false);
     }
   };
 
-  const userRegisterReceiver = async (data: iFormRegisterReceiver): Promise<boolean> => {
+  const userRegisterReceiver = async (
+    data: iFormRegisterReceiver
+  ): Promise<boolean> => {
     try {
       setLoading(true);
 
       const response = await api.post<iUserResponse>("register", data);
 
       toast.success("Conta criada com sucesso!");
-      return false
+      return false;
     } catch (error) {
       toast.error("Ops! Algo deu errado");
-      return true
+      return true;
     } finally {
       setLoading(false);
     }
   };
-  const editAdress = async (data: iEditAdrress): Promise<boolean> => {
+  const editAddress = async (data: iEditAddress): Promise<boolean> => {
     try {
       setLoading(true);
+      setReloadPage(!reloadPage);
       const userId = window.localStorage.getItem("USER");
       const token = localStorage.getItem("TOKEN");
+      console.log(data);
+      const newData: iEditAddress = {};
+      Object.keys(data).forEach((item) => {
+        if (data[item] !== "") {
+          newData[item] = data[item] as string;
+        }
+      });
 
-      await api.patch(`/users/${userId}`, data, {
+      console.log(newData);
+
+      await api.patch(`/users/${userId}`, newData, {
         headers: {
           authorization: `Bearer ${token}`,
         },
       });
 
       toast.success("Dados alterados com sucesso!");
-      setModalProfile(false)
-      return false
+      setModalProfile(false);
+      return false;
     } catch (error) {
       toast.error("Ops! Algo deu errado");
-      return true
+      return true;
     } finally {
       setLoading(false);
+      setReloadPage(!reloadPage);
     }
   };
 
@@ -141,8 +157,8 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
 
   const addDefaultImg = (event: SyntheticEvent<HTMLImageElement, Event>) => {
     (event.target as HTMLImageElement).src = `${imgError}`;
-}
-  
+  };
+
   return (
     <UserContext.Provider
       value={{
@@ -154,11 +170,11 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
         userLogin,
         userRegisterDonor,
         userRegisterReceiver,
-        editAdress,
+        editAddress,
         userLogout,
         modalProfile,
         setModalProfile,
-        addDefaultImg
+        addDefaultImg,
       }}
     >
       {children}

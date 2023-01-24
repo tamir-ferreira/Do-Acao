@@ -4,26 +4,32 @@ export const DonationUpdateStyled = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  div {
+  text-align: center;
+  > div {
     display: flex;
     flex-direction: column;
     gap: 0.875rem;
-    div {
+    > div {
+      gap: 5px;
       display: flex;
       flex-direction: row;
       align-items: center;
     }
     span#titleDescription {
       font-weight: 600;
-      font-size: 1.125rem;
+      font-size: 1rem;
     }
     span {
       font-size: 1rem;
     }
+    img {
+      width: 70%;
+      margin-bottom: 15px;
+    }
   }
 
   form {
-    margin-top: 2rem;
+    margin-top: 3rem;
     gap: 1rem;
     display: flex;
     flex-direction: column;

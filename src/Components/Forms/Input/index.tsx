@@ -8,8 +8,8 @@ interface iInputProps {
   placeholder: string;
   register?: UseFormRegisterReturn;
   disabled?: boolean;
-  rows?: string
-  cols?: string
+  rows?: string;
+  cols?: string;
 }
 
 export const Input = ({
@@ -29,7 +29,7 @@ export const Input = ({
           placeholder={placeholder}
           {...register}
           disabled={disabled}
-          required={true}
+          // required={true}
         />
         <label htmlFor={id}>{label}</label>
       </InputStyled>

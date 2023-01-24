@@ -66,7 +66,7 @@ export const DashboardDonor = () => {
       )}
       {modalEditDonor && (
         <Modal
-          name="Perfil"
+          name="Doação"
           state={modalEditDonor}
           setState={setModalEditDonor}
         >

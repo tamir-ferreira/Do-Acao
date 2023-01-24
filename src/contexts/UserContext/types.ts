@@ -8,12 +8,12 @@ export interface iFormLogin {
   password: string;
 }
 
-export interface iEditAdrress {
-  name: string;
-  profileImgUrl: string;
-  street: string;
-  city: string;
-  state: string;
+export interface iEditAddress {
+  [name: string]: string | undefined;
+  profileImgUrl?: string;
+  street?: string;
+  city?: string;
+  state?: string;
 }
 
 export interface iUserProviderProps {
@@ -43,11 +43,9 @@ export interface iUserProviderValue {
   userLogin: (data: iFormLogin) => Promise<void>;
   userRegisterDonor: (data: iFormRegisterDonor) => Promise<boolean>;
   userRegisterReceiver: (data: iFormRegisterReceiver) => Promise<boolean>;
-  editAdress: (data: iEditAdrress) => Promise<boolean>;
+  editAddress: (data: iEditAddress) => Promise<boolean>;
   userLogout: () => void;
   modalProfile: boolean;
   setModalProfile: (modalProfile: boolean) => void;
   addDefaultImg: (event: SyntheticEvent<HTMLImageElement, Event>) => void;
 }
-
-

@@ -24,6 +24,10 @@ export interface iReciver {
   profileImgUrl?: string;
   name?: string;
   company?: string;
+  address?: {
+    state?: string;
+    city?: string;
+  };
 }
 
 export interface iDonationInfo {

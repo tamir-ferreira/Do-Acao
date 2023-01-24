@@ -12,7 +12,8 @@ interface IStyledTypography {
     | "Body600"
     | "Caption"
     | "label"
-    | "special";
+    | "special"
+    | "Small";
 }
 
 export const StyledTypography = styled(BaseTypography)`
@@ -68,6 +69,11 @@ export const StyledTypography = styled(BaseTypography)`
           font-size: 14px;
           font-weight: 500;
           text-align: left;
+        `;
+      case "Small":
+        return css`
+          font-size: 11px;
+          font-weight: 600;
         `;
       case "special":
         return css`

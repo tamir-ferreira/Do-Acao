@@ -5,6 +5,7 @@ import { Modal } from "../index";
 import { Button } from "../../Button";
 import { DonationUpdateStyled } from "./modalProductUpdate";
 import { DonationContext } from "../../../contexts/DonationContext";
+import { ImageCategories } from "../../ImageCategories";
 
 interface IdataProductUpdate {
   amounts: number;
@@ -16,10 +17,13 @@ type FormProductUpdate = {
 
 interface IPropsModalProductUpdate {
   id: number;
-  setState: React.Dispatch<React.SetStateAction<boolean>>
+  setState: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export const ModalProductUpdate = ({ setState, id }: IPropsModalProductUpdate) => {
+export const ModalProductUpdate = ({
+  setState,
+  id,
+}: IPropsModalProductUpdate) => {
   const { donations, editQuantity, deleteDonation } =
     useContext(DonationContext);
 
@@ -31,47 +35,49 @@ export const ModalProductUpdate = ({ setState, id }: IPropsModalProductUpdate) =
     formState: { errors },
   } = useForm<FormProductUpdate>();
 
-  const submit = handleSubmit((data: { amounts: number }) => autocloseModal(data))
+  const submit = handleSubmit((data: { amounts: number }) =>
+    autocloseModal(data)
+  );
 
   const autocloseModal = async (data: { amounts: number }) => {
-
-    const state = await editQuantity({ amounts: data.amounts, id: id })
-    setState(state)
-  }
+    const state = await editQuantity({ amounts: data.amounts, id: id });
+    setState(state);
+  };
   const autocloseModalDelete = async () => {
-    const state = await deleteDonation(id)
-    setState(state)
-  }
-
+    const state = await deleteDonation(id);
+    setState(state);
+  };
+  console.log(product);
   return (
     <DonationUpdateStyled>
       <div>
         <div>
-          <span id="titleDescription">Alimento:</span>
-          <span>{product?.title}</span>
+          <ImageCategories category={product?.category} />
         </div>
         <div>
-          <span id="titleDescription">Descrição:</span>
-          <span>{product?.descripition}</span>
+          <span id="titleDescription">Produto: </span>
+          <span>{product?.title}</span>
         </div>
         <div>
           <span id="titleDescription">Categoria:</span>
           <span>{product?.category}</span>
         </div>
         <div>
+          <span id="titleDescription">Quantidade:</span>
+          <span>{product?.amounts}</span>
+        </div>
+        <div>
           <span id="titleDescription">Vencimento:</span>
           <span>{product?.validation}</span>
         </div>
         <div>
-          <span id="titleDescription">Quantidade:</span>
-          <span>{product?.amounts}</span>
+          <span id="titleDescription">Descrição:</span>
+          <span>{product?.descripition}</span>
         </div>
       </div>
-      <form
-        onSubmit={submit}
-      >
+      <form onSubmit={submit}>
         <Input
-          label={"Quantidade"}
+          label={"Nova Quantidade"}
           id={"amounts"}
           type={"text"}
           placeholder={"Digite a quantidade desejada"}
@@ -89,6 +95,6 @@ export const ModalProductUpdate = ({ setState, id }: IPropsModalProductUpdate) =
           Deletar
         </Button>
       </form>
-    </DonationUpdateStyled >
+    </DonationUpdateStyled>
   );
 };

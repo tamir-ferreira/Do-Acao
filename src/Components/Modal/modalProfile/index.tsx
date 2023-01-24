@@ -96,7 +96,7 @@ export const ModalProfile = () => {
           required={false}
         />
         <Button size="lg" theme="primary" type="submit">
-          Editar perfil
+          Atualizar Perfil
         </Button>
       </form>
     </ModalProfileStyled>

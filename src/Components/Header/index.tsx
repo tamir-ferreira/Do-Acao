@@ -13,7 +13,7 @@ export const Header = () => {
     <StyledHeader>
       <div>
         <img src={logo} alt="" />
-        {user?.donor ? <h2>Painel do Doador</h2> : <h2>Painel do Donatário</h2>}
+        {user?.donor ? <h2>Painel do DOADOR</h2> : <h2>Painel do DONATÁRIO</h2>}
         <div>
           <button
             type="button"

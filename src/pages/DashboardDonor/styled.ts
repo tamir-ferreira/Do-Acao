@@ -56,7 +56,7 @@ export const StyledDashboard = styled.div`
         align-items: flex-start;
         flex-wrap: wrap;
         gap: 20px;
-        max-height: 70vh;
+        max-height: 80vh;
         overflow-y: auto;
       }
     }

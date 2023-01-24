@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export const StyledHeader = styled.header`
   width: 100vw;
-  height: 120px;
+  height: 140px;
   background-color: var(--color-secondary);
   box-shadow: 2px 2px 10px #00000060;
 
@@ -21,7 +21,7 @@ export const StyledHeader = styled.header`
       color: var(--color-grey60);
       font-size: 30px;
       transform: translateY(20px);
-      /* padding-top: 40px; */
+      padding-top: 40px;
       margin: 0 auto;
       text-shadow: -1px 1px 4px black;
     }
@@ -69,7 +69,6 @@ export const StyledHeader = styled.header`
   }
 
   @media screen and (max-width: 520px) {
-    height: 130px;
     > div {
       margin-top: 10px;
       align-items: flex-start;
@@ -78,7 +77,7 @@ export const StyledHeader = styled.header`
       h2 {
         width: 95vw;
         position: absolute;
-        top: 45px;
+        top: 10px;
         font-size: 16px;
         text-align: center;
       }
@@ -94,8 +93,6 @@ export const StyledHeader = styled.header`
 
         > button {
           transform: scale(0.8);
-          > img {
-          }
         }
       }
     }

@@ -50,8 +50,9 @@ export const ModalProfileStyled = styled.div`
 
   @media (max-width: 400px) {
     img {
+      border: 1px solid red;
       width: 9rem;
-      height: 9rem;
+      min-height: 9rem;
     }
   }
 `;

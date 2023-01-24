@@ -35,7 +35,7 @@ export const DashboardReceiver = () => {
     <>
       {modalProfile && (
         <Modal
-          name={"Editar Perfil"}
+          name={"Editar Perfil Donatário"}
           state={modalProfile}
           setState={setModalProfile}
         >

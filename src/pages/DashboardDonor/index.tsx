@@ -39,7 +39,7 @@ export const DashboardDonor = () => {
     <>
       {modalProfile && (
         <Modal
-          name={"Editar Perfil"}
+          name={"Editar Perfil Doador"}
           state={modalProfile}
           setState={setModalProfile}
         >

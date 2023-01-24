@@ -28,8 +28,8 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
 
   useEffect(() => {
     async function loadUser() {
-      const token = localStorage.getItem("TOKEN");
-      const userID = localStorage.getItem("USER");
+      const token = sessionStorage.getItem("TOKEN");
+      const userID = sessionStorage.getItem("USER");
 
       if (!token && !userID) {
         setLoadingUser(false);
@@ -46,7 +46,7 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
         setIsDonor(response.data.donor);
       } catch (error) {
         console.log(error);
-        window.localStorage.clear();
+        window.sessionStorage.clear();
       } finally {
         setLoadingUser(false);
       }
@@ -64,8 +64,8 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
       setUser(response.data.user);
       setIsDonor(isDonorResponse);
 
-      window.localStorage.setItem("TOKEN", response.data.accessToken);
-      window.localStorage.setItem("USER", response.data.user.id);
+      window.sessionStorage.setItem("TOKEN", response.data.accessToken);
+      window.sessionStorage.setItem("USER", response.data.user.id);
 
       toast.success("Login realizado com sucesso!");
 
@@ -74,7 +74,7 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
         : navigate("/DashboardReceiver");
     } catch (error) {
       toast.error("Ops! Usuário ou Senha inválido!");
-      window.localStorage.clear();
+      window.sessionStorage.clear();
     } finally {
       setLoading(false);
     }
@@ -120,8 +120,8 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
     try {
       setLoading(true);
       setReloadPage(!reloadPage);
-      const userId = window.localStorage.getItem("USER");
-      const token = localStorage.getItem("TOKEN");
+      const userId = window.sessionStorage.getItem("USER");
+      const token = sessionStorage.getItem("TOKEN");
       console.log(data);
       const newData: iEditAddress = {};
       Object.keys(data).forEach((item) => {
@@ -151,7 +151,7 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
   };
 
   const userLogout = () => {
-    window.localStorage.clear();
+    window.sessionStorage.clear();
     navigate("/");
   };
 
